@@ -15,7 +15,8 @@ app.get('/', function (req, res) {
 io.on('connection', function (socket) {
     console.log("user connected");
 });
-server.listen(3009, function () {
+var PORT = process.env.PORT || 3009;
+server.listen(PORT, function () {
     console.log('listening on *:3009');
 });
 // const express = require('express');
