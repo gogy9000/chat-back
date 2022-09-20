@@ -6,15 +6,19 @@ import {Server} from 'socket.io'
 
 const app=express()
 const server = http.createServer(app);
-const io= new Server(server)
+const socket= new Server(server)
 
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello world</h1>');
 });
-io.on('connection',(socket)=>{
+socket.on('connection',(channel)=>{
+    channel.on('client-message-sent',(message:string)=>{
+        console.log(message)
+    })
     console.log("user connected")
 })
+
 const PORT=process.env.PORT||3009
 
 server.listen(PORT, () => {
