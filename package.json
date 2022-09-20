@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start-dev": "nodemon --inspect dist/app.js",
     "watch-dev": "tsc -w",
